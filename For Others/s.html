@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Custom Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4285F4;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #357ae8;
+        }
+    </style>
+    <script async src="https://cse.google.com/cse.js?cx=YOUR_CSE_ID"></script>
+</head>
+<body>
+    <div class="search-container">
+        <h1>Search with Google</h1>
+        <form onsubmit="return false;">
+            <input type="text" id="search-input" placeholder="Type your search...">
+            <input type="submit" value="Search" onclick="executeSearch()">
+        </form>
+    </div>
+    <div id="results"></div>
+
+    <script>
+        function executeSearch() {
+            const query = document.getElementById('search-input').value;
+            window.location.href = `https://www.google.com/search?q=${query}&gl=us&hl=en`;
+        }
+    </script>
+</body>
+</html>
